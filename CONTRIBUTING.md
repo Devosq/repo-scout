@@ -1,12 +1,16 @@
 # Contributing
 
-This is a personal configuration shared privately for reference and reuse.
+Contributions are welcome!
 
-## Conventions
-- **Branches:** `feat/...`, `fix/...`, `docs/...` off `main`.
-- **Commits:** [Conventional Commits](https://www.conventionalcommits.org/), English.
-- **No secrets:** never commit real keys, tokens, IPs, or `.env` files. Use placeholders.
+## Development
+```bash
+pip install -r requirements.txt
+python -m unittest discover -v      # run tests
+ruff check .                        # lint
+```
 
-## Adapting for your own setup
-Replace placeholders (`<USERNAME>`, `<VPS1_IP>`, `<SUPABASE_PROJECT_REF>`, etc.)
-with your own values in a local copy. Keep secrets in `.env` (git-ignored).
+## Guidelines
+- Keep the zero-dependency-where-possible spirit (stdlib + `requests` + `PyYAML`).
+- Add a test for any logic change (see `test_repo_scout.py`).
+- Conventional Commits, English.
+- Never commit secrets — `.env` is git-ignored; use `env.example` for new vars.

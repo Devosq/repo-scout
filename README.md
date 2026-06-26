@@ -82,4 +82,4 @@ token is redacted from logs. Always inspect a recommended repo yourself before
 cloning it.
 
 ## License
-[MIT](./LICENSE) (c) Oscar Vatanen
+[MIT](./LICENSE) (c) Oscar

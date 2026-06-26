@@ -64,10 +64,10 @@ class TestScoreRepo(unittest.TestCase):
     @mock.patch("repo_scout.requests.post")
     def test_valid_verdict_parsed_and_clamped(self, post):
         post.return_value = self._ollama_response(
-            {"score": 15, "project": "Tarjous-App", "reason": "Hyvä työkalu"})
+            {"score": 15, "project": "ExampleBid", "reason": "Hyvä työkalu"})
         verdict = repo_scout.score_repo(make_repo(), "http://x", "m", "ctx")
         self.assertEqual(verdict["score"], 10)  # clamped
-        self.assertEqual(verdict["project"], "Tarjous-App")
+        self.assertEqual(verdict["project"], "ExampleBid")
 
     @mock.patch("repo_scout.requests.post")
     def test_urls_stripped_from_reason(self, post):

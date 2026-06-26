@@ -1,0 +1,12 @@
+[Unit]
+Description=Repo Scout — GitHub repo discovery for active projects
+After=network-online.target ollama.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/repo-scout
+ExecStart=/opt/repo-scout/venv/bin/python3 /opt/repo-scout/repo_scout.py
+TimeoutStartSec=10800
+Nice=10

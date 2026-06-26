@@ -1,0 +1,58 @@
+# Repo Scout search profiles — EDIT THIS for your own projects.
+# {PUSHED} is replaced at runtime with a date 60 days ago.
+# Query syntax: GitHub repository search qualifiers.
+
+per_query: 8
+
+# Describe your projects so the LLM can judge relevance of found repos.
+projects_context: |
+  - Project A: <what it does, what tech, what you need help with>.
+  - Project B: <...>.
+  - Infra: <your servers, local LLM setup, dev workflow>.
+
+stack_in_use: |
+  - Frontend: <e.g. React + TypeScript, Next.js, Tailwind>
+  - Backend/data: <e.g. Postgres, Supabase, Node/Express>
+  - Testing: <e.g. Vitest, Playwright>
+  - Hosting/infra: <e.g. Vercel, a VPS, Docker>
+  - AI/LLM: <e.g. an LLM API, a local model runtime>
+  NOTE: tune the scoring guidance here — e.g. "score HIGH only repos that beat
+  what I already use; penalise repos that merely match my current stack."
+
+# Each profile = one search angle. Queries use GitHub repo-search syntax.
+# These are generic examples — replace goals/queries with your own needs.
+profiles:
+  - id: pdf-extraction
+    project: "Project A"
+    goal: "Better PDF/document extraction (tables, layout, OCR)"
+    queries:
+      - 'pdf table extraction in:name,description stars:>100 pushed:>{PUSHED}'
+      - 'document layout parsing OCR in:name,description stars:>80 pushed:>{PUSHED}'
+
+  - id: lead-enrichment
+    project: "Project B"
+    goal: "Web scraping, contact/email discovery or company enrichment"
+    queries:
+      - 'email finder enrichment in:name,description stars:>50 pushed:>{PUSHED}'
+      - 'web scraping llm extraction in:name,description stars:>100 pushed:>{PUSHED}'
+
+  - id: agent-tooling
+    project: "Infra"
+    goal: "Agent/Claude Code tooling: skills, MCP servers, orchestration"
+    queries:
+      - 'claude code in:name,description stars:>100 pushed:>{PUSHED}'
+      - 'mcp server in:name,description stars:>150 pushed:>{PUSHED}'
+
+  - id: supabase-postgres
+    project: "Infra"
+    goal: "Supabase / Postgres / RLS tooling: migrations, security, testing"
+    queries:
+      - 'supabase tooling in:name,description stars:>50 pushed:>{PUSHED}'
+      - 'postgres rls security in:name,description stars:>40 pushed:>{PUSHED}'
+
+  - id: local-llm
+    project: "Infra"
+    goal: "Local LLM serving, routing, structured output, evaluation"
+    queries:
+      - 'ollama in:name,description stars:>150 pushed:>{PUSHED}'
+      - 'llm structured output in:name,description stars:>80 pushed:>{PUSHED}'

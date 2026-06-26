@@ -1,0 +1,29 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+.credentials.json
+secrets/
+*service-account*.json
+
+# Claude Code runtime / local state
+*.log
+*cache*
+*.bak
+*.backup-*
+history.jsonl
+session-data/
+session-backups/
+shell-snapshots/
+telemetry/
+metrics/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+node_modules/
+__pycache__/
+*.pyc
+.venv/
